@@ -116,89 +116,18 @@ body{
     border: 1px solid #DDDDDD;
     height: 500px;
     cursor: pointer;
-    padding: 50px 38px;
+    padding: 40px 20px;
     overflow:hidden;
 }
 
-#key-Features .card .img-container{
-    height: 300px;
-    text-align: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-#key-Features .card:hover .img-container{
-    height: auto;
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-    animation: fadeInUp;
-    animation-duration: 1.5s;
-}
-
-
-#key-Features .card .img-container img{
-    width: 102px;
-    animation: fadeInDown;
-    animation-duration: 1s;
-}
-
-#key-Features .card:hover .img-container img{
+#key-Features .card img{
     width: 50px;
-    animation: fadeInUp;
-    animation-duration: .5s;
-}
-
-#key-Features .card .card-body{
-    padding-bottom: 78px;
-    overflow: hidden;
-}
-
-#key-Features .card:hover .card-body{
-    padding: 0;
-    animation: fadeInUp;
-    animation-duration: 1s;
 }
 
 #key-Features .card .card-title{
+    text-align: left;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
-    animation: fadeInDown;
-    animation-duration: 1s;
-}
-
-#key-Features .card:hover .card-title{
-    text-align: left;
-    margin-top: 12px;
-    animation: fadeInUp;
-    animation-duration: 1s;
-}
-
-#key-Features .card .summery{
-    font-size: 16px;
-    display: block;
-    animation: fadeInUp;
-    animation-duration: 1s;
-}
-#key-Features .card:hover .summery{
-    display: none;
-    animation: fadeOut;
-    animation-duration: 1s;
-}
-
-#key-Features .card .descripton{
-    font-size: 16px;
-    display: none;
-    animation: fadeOutDown;
-    animation-duration: 1s;
-}
-
-
-#key-Features .card:hover .descripton{
-    display: block;
-    animation: fadeInUp;
-    animation-duration: 1s;
 }
 
 /* card and tabs  design and animation for value for business section cards */
@@ -220,8 +149,6 @@ body{
     border-radius: 0;
     border: 0;
     cursor:pointer;
-    animation: fadeIn;
-    animation-duration: 1s;
     overflow: hidden;
 }
 
@@ -234,8 +161,6 @@ body{
     overflow: hidden;
     display: flex;
     flex-direction: column-reverse;
-    animation: fadeInDown;
-    animation-duration: 1s;
 }
 
 #v-f-business .card:hover .card-img-overlay{
@@ -247,8 +172,6 @@ body{
 
 #v-f-business .card .card-img-overlay img{
     width: 70%;
-    animation: fadeInDown;
-    animation-duration: 1s;
 }
 
 #v-f-business .card .card-img-overlay .card-title{
@@ -256,8 +179,6 @@ body{
     font-family: 'Source Sans Pro', sans-serif; 
     margin-top: 10px;
     margin-bottom: 0;
-    animation: fadeInDown;
-    animation-duration: 1s;
 }
 
 #v-f-business .card .card-img-overlay p{
