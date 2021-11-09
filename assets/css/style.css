@@ -96,12 +96,19 @@ body{
 }
 
 
-#key-Features{
+#best-in-class{
     background-image: url(../img/section-2-background.png);
     background-repeat: no-repeat;
-    background-position: right 30%;
+    background-position: right 20%;
 }
 
+
+#demo1{
+    background-image: url(../img/bg-2.jpg);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
 
 #footer{
     background-color: #CAF2FE;
@@ -157,49 +164,27 @@ body{
 }
 
 #v-f-business .card .card-img-overlay{
-    padding: 50px 30px;
+    padding: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column-reverse;
 }
 
-#v-f-business .card:hover .card-img-overlay{
-    flex-direction: column;
-    animation: fadeInUp;
-    animation-duration: 1s;
-}
-
-
-#v-f-business .card .card-img-overlay img{
-    width: 70%;
-}
-
 #v-f-business .card .card-img-overlay .card-title{
     font-weight: 600;
     font-family: 'Source Sans Pro', sans-serif; 
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 0;
+    text-decoration: underline;
 }
 
 #v-f-business .card .card-img-overlay p{
     font-size: 16px;
-    padding-top: 24px;
-    line-height: 24px;
+    padding-top: 14px;
+    line-height: 20px;
     color: #fff;
-    display: none;
-    opacity: 0;
 }
 
-#v-f-business .card:hover .card-img-overlay p{
-    display: block;
-    opacity: 1;
-    animation: fadeInUp;
-    animation-duration: 1s;
-}
-
-#v-f-business .card:hover .card-img-overlay .dd{
-    overflow: hidden;
-}
 
 
 
