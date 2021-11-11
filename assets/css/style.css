@@ -96,7 +96,7 @@ body{
 }
 
 
-#key-Features{
+#scoring-overview{
     background-image: url(../img/section-2-background.png);
     background-repeat: no-repeat;
     background-position: right 20%;
@@ -110,8 +110,15 @@ body{
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+#banner1{
+    background-image: url(../img/banner-bg-1.jfif);
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
 #footer{
-    background-color: #CAF2FE;
+    background-color: #FFF;
 }
 
 
