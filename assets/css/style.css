@@ -39,8 +39,13 @@ a:hover{
 }
 
 .px-lg{
-    padding-left : 4.875rem;
-    padding-right : 4.875rem;
+    padding-left : 5rem;
+    padding-right : 5rem;
+}
+
+.py-lg{
+    padding-top : 4.875rem;
+    padding-bottom : 4.875rem;
 }
 
 .bg-light-blue{
@@ -178,7 +183,7 @@ body{
 }
 
 #v-f-business .card .card-img-overlay .card-title{
-    font-weight: 600;
+    font-weight: 500;
     font-family: 'Source Sans Pro', sans-serif; 
     margin-top: 5px;
     margin-bottom: 0;
