@@ -1,13 +1,31 @@
+@font-face {
+    font-family: 'Helvetica-neue';
+    src:  url('../fonts/helveticaneue/HelveticaNeueBd.ttf') format('ttf');
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: 'Helvetica-neue';
+    src:  url('../fonts/helveticaneue/HelveticaNeueMed.ttf') format('ttf');
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: 'Helvetica-neue';
+    src:  url('../fonts/helveticaneue/HelveticaNeueLt.ttf') format('ttf');
+    font-weight: 400;
+  }
+
 html, body, p {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Helvetica-neue', sans-serif;
     font-weight: 400;
     color:#1C252F;
     font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6{
+/* h1, h2, h3, h4, h5, h6{
     font-family: 'Source Serif Pro', serif;
-}
+} */
 
 h1{font-size: 42px;}
 h4{
@@ -145,7 +163,7 @@ body{
 
 #key-Features .card .card-title{
     text-align: left;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Helvetica-neue', sans-serif;
     font-weight: 700;
 }
 
@@ -184,7 +202,7 @@ body{
 
 #v-f-business .card .card-img-overlay .card-title{
     font-weight: 500;
-    font-family: 'Source Sans Pro', sans-serif; 
+    font-family: 'Helvetica-neue', sans-serif; 
     margin-top: 5px;
     margin-bottom: 0;
     text-decoration: underline;
