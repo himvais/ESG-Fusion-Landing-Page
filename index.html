@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script type="text/javascript">
+      let envFileName = window.location.hostname.includes('localhost') ? 'localhost' : 'env';
+      var s = document.createElement('script');
+      let scripturl = './environments/' + envFileName + '.js';
+      console.log(scripturl);
+      s.setAttribute('src', scripturl);
+      document.head.appendChild(s);
+    </script> 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./lib/bootstrap-5.1.3/dist/css/bootstrap.css">
 
@@ -23,7 +31,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <!-- <link rel="manifest" href="/site.webmanifest"> -->
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -58,14 +66,13 @@
             </li>
           </ul>
           <form class="d-flex">
-            <a class="btn btn-sm btn-secondary ms-3" href="https://erm.com" target="_blank">Interactive Dashboard</a>
-            <button class="btn btn-sm btn-blue ms-3" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Request Trial</button>
+            <a class="btn btn-sm btn-secondary ms-3" href="#" target="_blank" id="clientLoginLink">Interactive Dashboard</a>
+            <button class="btn btn-sm btn-blue ms-3" type="button" data-bs-toggle="modal" data-bs-target="#scheduleModal">Request Trial</button>
           </form>
         </div>
       </div>
   </nav>
 
-  
     <!-- Header -->
     <div class="container-xl" id="home">
       <div class="row">
@@ -91,8 +98,8 @@
     <div class="container-xl mt-3" id="scoring">
       <div class="row pt-3 align-items-center gx-5">
         <div class="col">
-          <video class="w-100 mt-3" controls muted autoplay loop preload="auto">
-            <source src="./assets/erm.mp4" type="video/mp4">
+          <video id="videoPlayer" class="w-100 mt-3" controls muted autoplay loop preload="auto">
+            <source src="#" type="video/mp4">
           Your browser does not support the video tag.
           </video>
         </div>
@@ -134,7 +141,7 @@
                 Investor chooses a company and we perform the research within 48 hours
               </p>
               <br>
-              <a href="#" class="text-primary">Download Sample Report</a>
+              <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#pdfModal">Download Sample Report</a>
             </div>
           </div>
         </div>
@@ -339,7 +346,7 @@
         <div class="col">
           <div class="text-center">
             <h1 class="fw-700 text-white">Get Started Now</h1>
-            <button class="btn btn-sm btn-blue" data-bs-toggle="modal" data-bs-target="#exampleModal">Request Trial</button>
+            <button class="btn btn-sm btn-blue" data-bs-toggle="modal" data-bs-target="#scheduleModal">Request Trial</button>
           </div>
         </div>
       </div>
@@ -362,19 +369,19 @@
             <img src="./assets/img/FusionLogoSVG.svg" height="48" alt="">
           </div>
           <div class="col">
-            <p class="text-end mt-3"><a href="" target="_blank" class="text-primary">ERM Website </a> | <a href="" target="_blank" class="text-primary">SustainAbility Institute </a>| 2021 @ERM</p>
+            <p class="text-end mt-3"><a href="https://erm.com" target="_blank" class="text-primary">ERM Website </a> | <a href="#" target="_blank" class="text-primary">SustainAbility Institute </a>| 2021 @ERM</p>
           </div>
         </div>
       </div>
     </div>
 
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content">
           <div class="modal-header border-0 align-items-start">
             <span>
-              <h5 class="modal-title mb-1 fw-600" id="exampleModalLabel">Schedule a Demo</h5>
+              <h5 class="modal-title mb-1 fw-600" id="scheduleModalLabel">Schedule a Demo</h5>
               <p>Please enter your contact details, our ESG Fusion experts will reach out to you soon!</p>
             </span>
             <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -385,48 +392,51 @@
                 <img src="./assets/img/contact.svg" class="img-fluid" alt="">
               </div> -->
               <div class="col-12">
-                <form>
+                <div id="alertSuccess" class="alert alert-success" role="alert" style="display:none">
+                  We have received your request. Our representative will reach out to you soon.
+                </div>
+                <div id="alertError" class="alert alert-danger" role="alert" style="display:none">
+                 An error occured. Please try again later.
+                </div>
+                <form id="frmDetails">
                   <div class="row">
                     <div class="col mb-2">
                       <label for="name" class="form-label">Name <span class="text-danger"><strong>*</strong></span></label>
-                      <input type="text" class="form-control" id="name" required>
+                      <input type="text" class="form-control" id="name" name="name" maxlength="500" required>
                     </div>
                   </div>
                   <div class="row mb-2">
                     <div class="col">
                       <label for="email" class="form-label">Email address <span class="text-danger"><strong>*</strong></span></label>
-                      <input type="email" class="form-control" id="email" required>
+                      <input type="email" class="form-control" id="email" name="email" maxlength="400" required>
                     </div>
                     <div class="col">
                       <label for="Phone" class="form-label">Phone Number</label>
-                      <input type="tel" class="form-control" id="Phone">
+                      <input type="tel" class="form-control" id="phone" name="phone">
                     </div>
                   </div>
                   <div class="row mb-2">
                     <div class="col">
                       <label for="country" class="form-label">Country</label>
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected> -- Select Country -- </option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                      <select class="form-select" id="country" name="country">
+                        <option value='' selected> -- Select Country -- </option>
                       </select>
                     </div>
                   </div>
                   <div class="row mb-2">
                     <div class="col">
                       <label for="company" class="form-label">Company name <span class="text-danger"><strong>*</strong></span></label>
-                      <input type="text" class="form-control" id="company" required>
+                      <input type="text" class="form-control" id="company" name="company" maxlength="200" required>
                     </div>
                     <div class="col">
                       <label for="j-title" class="form-label">Job Title</label>
-                      <input type="text" class="form-control" id="j-title">
+                      <input type="text" class="form-control" id="jobtitle" name="jobtitle" maxlength="200">
                     </div>
                   </div>
                   <div class="row mb-2">
                     <div class="col">
                       <label for="message" class="form-label">Message</label>
-                      <textarea class="form-control" id="message" rows="3"></textarea>
+                      <textarea class="form-control" id="message" name="message" rows="3" maxlength="2000"></textarea>
                     </div>
                   </div>
                 </form>
@@ -434,11 +444,83 @@
             </div>
             
           </div>
-          <div class="modal-footer d-flex flex-row flex-nowrap align-items-center justify-content-between border-0">
-              <p class="text-muted source-title">Lorem ipsum dolor sit, amet consectetur adipisicing <a href="#" class="text-primary">link example.</a></p>
-              <div >
-                <button type="button" class="btn btn-blue">Submit</button>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-blue" id="btnSubmit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header border-0 align-items-start">
+            <span>
+              <h5 class="modal-title mb-1 fw-600" id="reportModalLabel">Live Dashboard</h5>              
+            </span>
+            <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row align-items-center">  
+              <div class="col-12">
+                <div>
+                  <iframe id="powerBiFrame">
+
+                  </iframe>
+                </div>
               </div>
+            </div>
+            
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header border-0 align-items-start">
+            <span>
+              <h5 class="modal-title mb-1 fw-600" id="pdfModalLabel">Sample Report</h5>              
+            </span>
+            <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row align-items-center">  
+              <div class="col-12 text-center">
+                <div style="padding-bottom: 5px;">
+                  <div>                    
+                    <button type="button" class="btn btn-secondary" id="prev">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"></path>
+                      </svg>
+                    </button>
+                    &nbsp; &nbsp;
+                    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+                    &nbsp; &nbsp;                    
+                    <button type="button" class="btn btn-secondary" id="next">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                      </svg>
+                    </button>
+
+                    <button class="btn btn-secondary" id="downloadReport" onclick="DownloadPdf()">Download</button>
+                    
+                  </div>
+                  
+                </div>
+                
+                <canvas id="the-canvas"></canvas>
+              </div>
+            </div>
+            
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -446,32 +528,15 @@
     
     <!-- Bootstrap JS -->
     <script src="./lib/bootstrap-5.1.3/dist/js/bootstrap.bundle.js"></script>
-
     <!-- bootstrap masonry grid -->
     
     <script src=
     "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         </script>
-    <script>
-      $(function () {
-        var scrollSpy = new bootstrap.ScrollSpy(document.body, {target:"#navbar", offset: 50});
-          var header = $(".navbar");
-          $(window).scroll(function () {
-              var scroll = $(window).scrollTop();
-
-              if (scroll >= 1) {
-                  header.removeClass('bg-transparent')
-                          .addClass("bg-white");
-                  header.addClass("shadow-sm");
-                  $('.navbar-brand img').css('height', '55');
-              } else {
-                  header.removeClass("bg-white")
-                          .addClass('bg-transparent');
-                          header.removeClass("shadow-sm");
-                          $('.navbar-brand img').css('height', '75');
-              }
-          });
-      });
-  </script>
+    <script src="./lib/jquery-validate/jquery.validate.min.js"></script>       
+    <script src="./environments/environment.js"></script>
+    <script src="./lib/pdfjs/build/pdf.js"></script>
+    <script src="./lib/pdfviewer.js"></script>
+    <script src="./lib/index.js"></script>
   </body>
 </html>
