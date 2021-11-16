@@ -152,7 +152,6 @@ body{
     background-color: #FFFFFF;
     border: 1px solid #DDDDDD;
     height: 450px;
-    cursor: pointer;
     padding: 40px 20px;
     overflow:hidden;
 }
@@ -185,7 +184,6 @@ body{
 #v-f-business .card{
     border-radius: 0;
     border: 0;
-    cursor:pointer;
     overflow: hidden;
 }
 
